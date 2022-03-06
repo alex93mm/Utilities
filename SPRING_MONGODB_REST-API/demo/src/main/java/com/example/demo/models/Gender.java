@@ -1,2 +1,5 @@
-package com.example.demo.models;public enum Gender {
+package com.example.demo.models;
+
+public enum Gender {
+    MALE, FEMALE
 }

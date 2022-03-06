@@ -1,8 +1,12 @@
-package com.example.demo.entities;
+package com.example.demo.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
 public class Address {
     private String country;
     private String city;
     private String postCode;
-    private String street;
 }
