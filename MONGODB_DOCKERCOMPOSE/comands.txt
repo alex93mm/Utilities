@@ -1,0 +1,33 @@
+BASICS
+------
+db.help(); // Here is the most basic command that shows all the commands and a little description
+
+DATABASES
+---------
+show dbs; // Thats show you all the databases created in the server
+use dbName // Creates a new databases named 'dbName'
+db.dropDatabase(dbName); // This command deletes the database with name 'dbName'
+
+
+COLLECTIONS
+-----------
+db.collection.help(); // Shows all the commands related with collections
+show collections; // Thats show all collections
+db.createCollection(collectionName); // This command create a new Collection named 'collectionName'
+db.createCollection(collectionName, { option1: ... , option2: ...}); // On the createCollection command you can add options like size or others to set the collection properties
+db.collectionName.drop(); // Deletes collection with name 'collectionName'
+db.collectionName.insert({ objectProp1: ... , objectProp2: ... }); // Inserts a new document in the collection
+db.collectionName.insertMany([{ ...object1 }, { ...object2 }]); // Inserts many documents in the collection
+db.collectionName.count(); // Thats return the number of collection documents
+
+QUERYS
+------
+db.collectionName.find(); // Returns all the documents contained in collection
+db.collectionName.find().pretty(); // Shows the documents well formated
+db.collectionName.find({ filterOptions: 'dataOption' }, { returnedOptions: 1 }); // With this command can filter documents with concrete properties and shows uniquely the properties specified in returnedOptions (To exclude the returnedOptions must be specified 0)
+db.collectionName.update({ filterOptions: 'dataOption' }, {$inc: { updatedOption: 'increment' }}); // This command increments the selected option for the filtered document
+db.collectionName.update({ filterOptions: 'dataOption' }, {$pull: { selectedOption: 'removedValue' }}); // Thats delete the removedValue from the selectedOption from the documents selecteds
+db.collectionName.update({ filterOptions: 'dataOption' }, {$push: { selectedOption: 'addedValue' }}); // Thats adds the addedValue from the selectedOption from the documents selecteds
+db.collectionName.updateMany({ filterOptions: 'dataOption' }, { selectedOption: 'value' }); // Command that modify the selectedOption from all the documents filtered
+db.collectionName.deleteOne({ filterOptions: 'dataOption' }); // Deletes the selected document (In case that no specificates filterOptions, the command will delete the last document)
+db.collectionName.deleteMany({ filterOptions: 'dataOption' }); // Deletes all the documents that will be filtered with the options
